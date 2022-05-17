@@ -1,0 +1,40 @@
+body {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: baskerville;
+}
+
+#header a, #header span {
+  font-family: ogg;
+  font-size: 1rem;
+  color: #CD5835;
+  padding: 0 2.5rem;
+  text-decoration: inherit;
+}
+
+#content {
+  margin-top: 15vh;
+  padding-left: 5vw;
+}
+
+#content p {
+  width: 40vw;
+}
+
+#gallery img {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #000000;
+}
+
+@font-face {
+  font-family: ogg;
+  src: local("ogg"), url(fonts/ogg.otf);
+}
+
+@font-face {
+  font-family: baskerville;
+  src: url(fonts/baskerville.ttf);
+}

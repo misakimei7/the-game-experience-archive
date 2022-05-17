@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>the game experience archive</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/index.css">
   </head>
 
   <body>
@@ -60,10 +58,32 @@
         <p>The TGEA is an archive in making that collects an individuals game experiences. It is part of a research project that tries to understand how human embodied experiences created through games, contribute to human culture, ideas, and stories.</p>
       </div>
     </div>
-    <div class="fixed-bottom d-flex flex-row-reverse align-items-center gap-2 p-4" id="scroll">
-      <span class="material-symbols-outlined">mouse</span>
+    <div class="fixed-bottom d-flex justify-content-end align-items-center gap-2 p-4" id="scroll">
       <span>Scroll to see more</span>
+      <span class="material-symbols-outlined">mouse</span>
     </div>
+    <script>
+      let urls = [
+        "https://drive.google.com/uc?id=1Yc2BQDm5bpeHE3sbAIPZv-OP3qTEypIF",
+        "https://drive.google.com/uc?id=1stEJ3RjfuIO4EKpZ0lqjXt7sAVtdym5F",
+        "https://drive.google.com/uc?id=1stJCECyV7DENr2ybAPIglBP0AQs6uUjY"
+      ];
+      let active = 0;
+
+      $(document).ready(() => {
+        $(".circle").each((index, circle) => {
+          $(circle).click(() => {
+            $("#carousel img").attr("src", urls[index]);
+            $(".circle").css("background-color", "#FFFFFF");
+            $(circle).css("background-color", "#686868");
+            active = index;
+          });
+        });
+        setInterval(() => {
+          $(".circle").eq(++active % 3).click();
+        }, 5000)
+      });
+    </script>
   </body>
 
 </html>

@@ -1,0 +1,165 @@
+body {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: baskerville;
+}
+
+#container {
+  width: 440vw;
+}
+
+.full {
+  height: 100vh;
+}
+
+#sideinfo p {
+  font-family: ogg;
+  font-size: 1rem;
+  color: #CD5835;
+  writing-mode: vertical-rl;
+  transform: scale(-1);
+}
+
+#landing {
+  width: 200vw;
+}
+
+#title {
+  font-family: ogg;
+  font-size: 7rem;
+  color: #CD5835;
+}
+
+.mono {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  position: absolute;
+  box-shadow: -7px 7px 6px #DDDDDD;
+}
+
+#image1 {
+  left: 10vw;
+  top: 10vh;
+  width: 25vw;
+}
+
+#image2 {
+  left: 45vw;
+  top: -3vh;
+  width: 15vw;
+}
+
+#image3 {
+  left: 80vw;
+  top: 12vh;
+  width: 20vw;
+}
+
+#image4 {
+  left: 120vw;
+  top: 13vh;
+  width: 13vw;
+}
+
+#image5 {
+  left: 150vw;
+  top: -10vh;
+  width: 30vw;
+}
+
+#image6 {
+  left: 15vw;
+  bottom: -9vh;
+  width: 30vw;
+}
+
+#image7 {
+  left: 70vw;
+  bottom: 12vh;
+  width: 16vw;
+}
+
+#image8 {
+  left: 110vw;
+  bottom: 5vh;
+  width: 25vw;
+}
+
+#image9 {
+  left: 160vw;
+  bottom: -15vh;
+  width: 17vw;
+}
+
+#orange {
+  width: 120vw;
+  height: 100vh;
+  background-color: #CD5835;
+  border-radius: 100px;
+  padding: 0 10rem;
+}
+
+#orange p {
+  font-family: ogg;
+  font-size: 5rem;
+  color: #FFFFFF;
+}
+
+#carousel {
+  margin: 0 10vw;
+}
+
+#carousel img {
+  height: 80vh;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #686868;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.circle:first-of-type {
+  background-color: #686868;
+}
+
+.circle:hover {
+  background-color: #686868;
+}
+
+#description {
+  width: 50vw;
+}
+
+#description h4 {
+  font-family: ogg;
+  color: #CD5835;
+  font-size: 2rem;
+}
+
+#description p {
+  font-size: 1.5rem;
+}
+
+#scroll {
+  color: #6C6C6C;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@font-face {
+  font-family: ogg;
+  src: local("ogg"), url(fonts/ogg.otf);
+}
+
+@font-face {
+  font-family: baskerville;
+  src: url(fonts/baskerville.ttf);
+}

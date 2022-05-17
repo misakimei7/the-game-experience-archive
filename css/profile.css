@@ -1,0 +1,121 @@
+body {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: baskerville;
+}
+
+#header a, #header span {
+  font-family: ogg;
+  font-size: 1rem;
+  color: #CD5835;
+  padding: 0 2.5rem;
+  text-decoration: inherit;
+}
+
+#container {
+  margin-top: 15vh;
+}
+
+#frame {
+  height: 75vh;
+}
+
+#frame img {
+  width: 100%;
+}
+
+#view {
+  z-index: 2;
+  cursor: pointer;
+}
+
+#back {
+  cursor: pointer;
+}
+
+.marker {
+  position: absolute;
+  font-size: 2.5rem;
+  color: #EA5F36;
+  cursor: pointer;
+}
+
+#marker1 {
+  top: 60%;
+  left: 50%;
+}
+
+#marker2 {
+  top: 40%;
+  left: 90%;
+}
+
+#marker3 {
+  top: 28%;
+  left: 30%;
+}
+
+#marker4 {
+  top: 50%;
+  left: 20%;
+}
+
+#marker5 {
+  top: 40%;
+  left: 40%;
+}
+
+#profile h5, #frame h5 {
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+#profile h6 {
+  font-size: 1.2rem;
+}
+
+#profile a, #profile a:hover {
+  font-size: 1.2rem;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.filter {
+  background-color: #FFFFFF;
+  font-size: 0.9rem;
+  border: 1px solid #000000;
+}
+
+.filter.active {
+  background-color: #D8D8D8;
+}
+
+.item {
+  font-size: 0.9rem;
+  line-height: 2.5rem;
+  margin: 0 0.5rem;
+}
+
+.item:first-of-type {
+  margin-left: 0;
+}
+
+.item.highlight {
+  border-bottom: 10px solid #F1BDAD;
+}
+
+.snippet.mark {
+  background-color: #F1BDAD;
+}
+
+@font-face {
+  font-family: ogg;
+  src: local("ogg"), url(fonts/ogg.otf);
+}
+
+@font-face {
+  font-family: baskerville;
+  src: url(fonts/baskerville.ttf);
+}
