@@ -1,0 +1,115 @@
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>the game experience archive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-map.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/geodata/countries/india/india.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-data-adapter.min.js"></script>
+    <link rel="stylesheet" href="css/map.css">
+  </head>
+
+  <body>
+    <div class="fixed-top d-flex p-4" id="header">
+      <a class="me-auto" href="index.html">TGEA</a>
+      <a href="about.html">About</a>
+      <span>Mute</span>
+    </div>
+    <div class="mx-5 px-3" id="container">
+      <h5>Interactive Map</h5>
+      <div class="row py-3">
+        <div class="col-5 pe-5">
+          <p>The cartography of the interactive map is based on attributes collected from the research data. They define the demographic of the participants.<br><br>
+            The map employs Flow map method, also known as ‘path’ maps to visualize geospatial data. They method is used to represent the movement of things across the earth over time. Here, it represents migrating humans along with their game experiences and knowledge. They are usually constructed as sets or pairs of origin and destination data points
+          </p>
+        </div>
+        <div class="col-5 offset-1 ps-5">
+          <p>The map below has collected data of the participants from their Sketching activity and Game experience survey. One can toggle between the two data to get a wider picture of the research participant demographics and the journey of their Game experiences.</p>
+        </div>
+      </div>
+      <div class="mt-5 border border-dark" id="map"></div>
+    </div>
+    <script>
+      anychart.onDocumentReady(function() {
+        anychart.data.loadJsonFile("dataset.json",
+          function(data) {
+            let map = anychart.connector();
+            map.geoData("anychart.maps.india");
+            map
+              .unboundRegions()
+              .enabled(true)
+              .fill("#FFFFFF")
+              .stroke("#DEDEDE");
+            map.
+            overlapMode("allow-overlap");
+            let createSeries = data => {
+              let connectorSeries = map
+                .connector(data)
+                .fill("#F5AD52")
+                .stroke({
+                  color: "#F5AD52",
+                  thickness: 3
+                });
+              connectorSeries
+                .hovered()
+                .stroke("3 #212121")
+                .fill("#212121");
+              connectorSeries
+                .markers()
+                .position("100%")
+                .fill("#F5AD52")
+                .stroke({
+                  color: "#F5AD52"
+                })
+                .size(8);
+              connectorSeries
+                .hovered()
+                .markers()
+                .position("100%")
+                .size(10)
+                .fill("#212121")
+                .stroke("2 #455a64");
+              connectorSeries
+                .labels()
+                .enabled(true)
+                .format(function() {
+                  return this.getData("from");
+                })
+                .fontColor("#212121");
+              connectorSeries
+                .tooltip()
+                .useHtml(true)
+                .format(function() {
+                  return (
+                    `<h4 style="font-size:1rem; margin: 0.25rem 0;">Childhood Place: <b>${this.getData("from")}</b></h4><h4 style="font-size:1rem; margin: 0.25rem 0;">Present Place: <b>${this.getData("to")}</b></h4><h4 style="font-size:1rem; margin: 0.25rem 0;">Participants: <b>${this.getData('total').toLocaleString()}</b></h4>`
+                  );
+                });
+            };
+            var dataset = anychart.data.set(data).mapAs();
+            createSeries(dataset);
+            map.container("map");
+            map.draw();
+          }
+        );
+      });
+
+      function filterFunction(val1, val2) {
+        if (val2) {
+          return function(fieldVal) {
+            return val1 <= fieldVal && fieldVal < val2;
+          };
+        }
+        return function(fieldVal) {
+          return val1 <= fieldVal;
+        };
+      }
+    </script>
+  </body>
+
+</html>
