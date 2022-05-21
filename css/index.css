@@ -154,6 +154,11 @@ body {
   opacity: 0.8;
 }
 
+#scroll a, #scroll a:hover {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 @font-face {
   font-family: ogg;
   src: local("ogg"), url(fonts/ogg.otf);
